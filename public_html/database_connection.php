@@ -1,12 +1,11 @@
 <?php
-	$hostname = 'localhost';
-	$username = 'root';
-	$password = '';
-	$database = 'website';
+$hostname = 'localhost';
+$username = 'root';
+$password = 'zEizie030226!';
+$database = 'website';
 
-	$connection = mysqli_connect($hostname, $username, $password, $database);
+$connection = mysqli_connect($hostname, $username, $password, $database);
 
-	if($connection === false){
-		die('Error connecting to database' .mysqli_connect_error());
-	}
-	
+if ($connection === false) {
+	die('Error connecting to database' . mysqli_connect_error());
+}
