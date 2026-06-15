@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:latest
+    ports: 
+      - "5434:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: carehome_user
+      POSTGRES_PASSWORD: carehomedbpassword!?
+      POSTGRES_DB: carehome_db
