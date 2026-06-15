@@ -1,2 +1,3 @@
-# assignment-project
-My Assignment Project made in HTML, CSS and JavaScript. PHP and MySQL are used to create CRUD and User Authentication.
+# CareHome Contractor Management System
+
+Connect Senior Care Houses with independent contractors who provide odd-job services such as plumbing, electrical work, landscaping, repairs, and general maintenance.
