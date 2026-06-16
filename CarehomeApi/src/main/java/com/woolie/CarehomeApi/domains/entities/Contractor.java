@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@DiscriminatorValue("contractor")
+@PrimaryKeyJoinColumn(name = "id")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +26,14 @@ public class Contractor extends User{
     private String companyName;
 
     @ElementCollection
+//    @CollectionTable(
+//            name = "contractor_skills",
+//            joinColumns = @JoinColumn(
+//                    name = "contractor_id",
+//                    referencedColumnName = "id",
+//                    foreignKey = @ForeignKey(name = "fk_contractor_skills_users")
+//            )
+//    )
     private List<String> skills;
 
     @OneToMany(mappedBy = "contractor", cascade = CascadeType.ALL, orphanRemoval = true)
