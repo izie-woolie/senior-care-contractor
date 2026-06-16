@@ -19,7 +19,7 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String pitch;
 
     @Column(nullable = false)
@@ -27,6 +27,14 @@ public class Application {
 
     @Enumerated(EnumType.STRING)
     private ApplicationStatus applicationStatus;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contractor_id", nullable = false)
+    private Contractor contractor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_id", nullable = false)
+    private Job job;
 
     @Override
     public boolean equals(Object o) {
