@@ -1,9 +1,9 @@
 package com.woolie.CarehomeApi.services;
 
 import com.woolie.CarehomeApi.domains.entities.Contractor;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ContractorService {
-    List<Contractor> getAllContractors();
+    Page<Contractor> getAllContractors(Pageable pageable);
 }

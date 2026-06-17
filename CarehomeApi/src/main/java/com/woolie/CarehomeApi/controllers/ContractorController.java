@@ -5,12 +5,13 @@ import com.woolie.CarehomeApi.domains.entities.Contractor;
 import com.woolie.CarehomeApi.mappers.ContractorMapper;
 import com.woolie.CarehomeApi.services.ContractorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/contractors")
@@ -20,9 +21,9 @@ public class ContractorController {
     private final ContractorMapper contractorMapper;
 
     @GetMapping
-    public ResponseEntity<List<ContractorDto>> getAllContractors() {
-        List<Contractor> contractors = contractorService.getAllContractors();
-        List<ContractorDto> contractorDtos = contractors.stream().map(contractorMapper::toDto).toList();
+    public ResponseEntity<Page<ContractorDto>> getAllContractors(@PageableDefault(size = 20) Pageable pageable) {
+        Page<Contractor> contractors = contractorService.getAllContractors(pageable);
+        Page<ContractorDto> contractorDtos = contractors.map(contractorMapper::toDto);
 
         return ResponseEntity.ok(contractorDtos);
     }
