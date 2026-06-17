@@ -31,7 +31,7 @@ public class Seeder implements CommandLineRunner {
         List<Contractor> contractors  = IntStream.range(0, 15)
                 .mapToObj(i -> Contractor.builder()
                         .email(faker.internet().emailAddress())
-                        .phoneNo(faker.phoneNumber().toString())
+                        .phoneNo(faker.phoneNumber().phoneNumber())
                         .description(faker.lorem().sentence(12))
                         .companyName(faker.company().name())
                         .skills(randomSkills(faker))
