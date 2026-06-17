@@ -28,7 +28,7 @@ public class Seeder implements CommandLineRunner {
         }
 
         Faker faker = new Faker();
-        List<Contractor> contractors  = IntStream.range(0, 15)
+        List<Contractor> contractors = IntStream.range(0, 15)
                 .mapToObj(i -> Contractor.builder()
                         .email(faker.internet().emailAddress())
                         .phoneNo(faker.phoneNumber().phoneNumber())
@@ -44,8 +44,7 @@ public class Seeder implements CommandLineRunner {
     }
 
     private static final List<String> SKILL_POOL = List.of(
-     "Electrical", "Plumbing", "Cleaning", "Landscaping", "General"
-    );
+            "Electrical", "Plumbing", "Cleaning", "Landscaping", "General");
 
     private List<String> randomSkills(Faker faker) {
         List<String> shuffled = new ArrayList<>(SKILL_POOL);
